@@ -53,3 +53,12 @@ EOF
 # 开启 kvm 虚拟化支持（RK3399 硬件支持）
 echo "CONFIG_KVM=y" >> .config
 echo "CONFIG_KVM_ARM_HOST=y" >> .config
+
+# ------------------------------- 8. 指定 Firefly-RK3399 设备型号（关键！）------------------------------
+cat >> .config <<EOF
+# 选择 Rockchip 平台和 RK3399 系列
+CONFIG_TARGET_rockchip=y
+CONFIG_TARGET_rockchip_rk3399=y
+# 明确指定设备为 Firefly RK3399
+CONFIG_TARGET_rockchip_rk3399_DEVICE_firefly-rk3399=y
+EOF
